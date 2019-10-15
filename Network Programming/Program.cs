@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace NetworkProgramming
 {
@@ -15,7 +16,12 @@ namespace NetworkProgramming
                         WebRequestExample.GetWebPage("https://docs.microsoft.com/dotnet/");
                         break;
                     case "socket":
-                        ClientSocketsExample.ConnectToSocket("docs.microsoft.com");
+                        IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+                        IPAddress iPAddress = ipHostInfo.AddressList[0];
+                        ClientSocketsExample.ConnectToSocket(iPAddress, 11000);
+                        break;
+                    case "listen":
+                        ListeningWithSocketsExample.StartListening(11000);
                         break;
 
                 }
