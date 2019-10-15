@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Network Programming": {
+      "commandName": "Project",
+      "commandLineArgs": "socket"
+    }
+  }
+}
